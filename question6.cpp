@@ -1,3 +1,4 @@
+
 #include <iostream>
 
 using namespace std;
@@ -11,18 +12,16 @@ private:
 public:
     Box(double l = 0.0, double w = 0.0, double h = 0.0) : length(l), width(w), height(h) {}
 
-    friend double calculateVolume(const Box& box);
-
     void setDimensions(double l, double w, double h) {
         length = l;
         width = w;
         height = h;
     }
-};
 
-double calculateVolume(const Box& box) {
-    return box.length * box.width * box.height;
-}
+    double calculateVolume() const {
+        return length * width * height;
+    }
+};
 
 int main() {
     double length, width, height;
@@ -39,7 +38,7 @@ int main() {
     Box myBox;
     myBox.setDimensions(length, width, height);
 
-    double volume = calculateVolume(myBox);
+    double volume = myBox.calculateVolume();
 
     cout << "Volume of the box: " << volume << endl;
 
